@@ -7,7 +7,7 @@ const theme = createTheme({
             main: '#fff',
         },
         secondary: {
-            main: '#19857b',
+            main: '#1D1D1D',
         },
         error: {
             main: red.A400,
@@ -15,7 +15,17 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: 'Montserrat, sans-serif'
-    }
+    },
+    components: {
+        MuiCssBaseline: {
+          styleOverrides: {
+            body: {
+              color: "#fff",
+              backgroundColor: "#1D1D1D",
+            }
+          }
+        }
+      }
 })
 
 export default theme;

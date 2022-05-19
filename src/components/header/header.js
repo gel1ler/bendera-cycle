@@ -28,7 +28,7 @@ const Header = ({ video, title }) => {
                     position: 'fixed',
                     top: 20,
                     left: 20,
-                    color: 'white'
+                    color: 'primary.main'
                 }}
             >
                 <DensityMediumIcon />
@@ -37,9 +37,12 @@ const Header = ({ video, title }) => {
                 anchor='left'
                 open={open}
                 onClose={() => setOpen(false)}
-                sx={{width: '25vw'}}
             >
-                asdasd
+                <Box sx={{ px: 20, pt: 2, height: '100%', bgcolor: 'secondary.main'}}>
+                    <Typography variant='h5'>
+                        Menu
+                    </Typography>
+                </Box>
             </Drawer>
             <Box
                 sx={{
@@ -56,7 +59,6 @@ const Header = ({ video, title }) => {
             />
             <Typography
                 variant="h3"
-                color='primary'
                 sx={{
                     zIndex: 2,
                     fontFamily: 'Montserrat, sans-serif',
