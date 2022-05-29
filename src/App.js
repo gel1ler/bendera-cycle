@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Box>
       <Header
-        title='B E &nbsp;&nbsp;&nbsp; N D E R A - aea 1 eae'
+        title='B E N D E R A - 1'
         video={video}
       />
       <Box sx={{ my: 4, mx: 'auto', width: '62.5%' }}>

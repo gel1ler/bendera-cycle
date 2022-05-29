@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './style.css'
-import { Box, Typography, IconButton, Drawer, Stack, Button } from '@mui/material'
+import { Box, Typography, IconButton, Drawer, Stack, Button, Slide } from '@mui/material'
 import DensityMediumIcon from '@mui/icons-material/DensityMedium'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import SlideMenu from '../slideMenu'
 
 const Header = ({ video, title }) => {
     const [scroll, setScroll] = useState(0)
@@ -12,13 +13,18 @@ const Header = ({ video, title }) => {
 
     const handleScroll = () => {
         setScroll(window.scrollY)
-        console.log(window.scrollY)
     }
 
+    const handleClose = () => {
+        setOpen(false)
+        setOpen2(false)
+    }
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     })
+
+    const containerRef = useRef(null)
 
     return (
         <Box className="header">
@@ -35,33 +41,11 @@ const Header = ({ video, title }) => {
             >
                 <DensityMediumIcon />
             </IconButton>
-            <Drawer anchor='left' open={open2} onClose={() => setOpen2(false)} >
-                <Box sx={{ px: 20, pt: 2, width: '30vw', height: '100%', bgcolor: 'secondary.main', width: '100%' }}>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }} >
-                        <Typography color="primary">text</Typography>
-                        <IconButton
-                            edge='end'
-                            onClick={() => setOpen2(false)}
-                            sx={{
-                                zIndex: 3,
-                                position: 'right',
-                                top: 0,
-                                left: 0,
-                                color: 'primary.main'
-                            }}>
-                            <ArrowRightIcon />
-                        </IconButton>
-                    </Box>
-                </Box>
-            </Drawer>
             <Drawer
-                anchor='left'
                 open={open}
-                onClose={() => setOpen(false)}
+                onClose={handleClose}
             >
-
-                <Box sx={{ px: 2, pt: 2, height: '100%', width: '30vw', bgcolor: 'secondary.main' }}>
-
+                <Box sx={{ px: 2, pt: 2, height: '100%', width: '30vw', bgcolor: 'secondary.main' }} ref={containerRef}>
                     <Typography variant='h5' color="primary">
                         Menu
                     </Typography>
@@ -70,8 +54,8 @@ const Header = ({ video, title }) => {
                         <Button variant="outlined" fullWidth startIcon={<ArrowRightIcon />}>О нас</Button>
                         <Button variant="outlined" fullWidth startIcon={<ArrowRightIcon />}>грохочет</Button>
                     </Stack>
+                    <SlideMenu state={open2} title='sdfs' container={containerRef} />
                 </Box>
-
             </Drawer>
             <Box
                 sx={{
