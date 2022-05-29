@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './style.css'
-import { Box, Typography, IconButton, Drawer } from '@mui/material'
+import { Box, Typography, IconButton, Drawer, Stack, Button, Slide } from '@mui/material'
 import DensityMediumIcon from '@mui/icons-material/DensityMedium'
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import SlideMenu from '../slideMenu'
 
 const Header = ({ video, title }) => {
     const [scroll, setScroll] = useState(0)
     const [open, setOpen] = useState(false)
+    const [open2, setOpen2] = useState(false)
     const delta = window.innerHeight * 0.3
 
     const handleScroll = () => {
         setScroll(window.scrollY)
-        console.log(window.scrollY)
     }
 
+    const handleClose = () => {
+        setOpen(false)
+        setOpen2(false)
+    }
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
         return () => window.removeEventListener("scroll", handleScroll)
     })
+
+    const containerRef = useRef(null)
 
     return (
         <Box className="header">
@@ -28,17 +36,30 @@ const Header = ({ video, title }) => {
                     position: 'fixed',
                     top: 20,
                     left: 20,
-                    color: 'white'
+                    color: 'primary.main'
                 }}
             >
                 <DensityMediumIcon />
             </IconButton>
             <Drawer
-                anchor='left'
                 open={open}
+<<<<<<< HEAD
                 onClose={() => setOpen(false)}
+=======
+                onClose={handleClose}
+>>>>>>> a60f64d8f07437455960ade76345ac5ad7c74536
             >
-                asdasd
+                <Box sx={{ px: 2, pt: 2, height: '100%', width: '30vw', bgcolor: 'secondary.main' }} ref={containerRef}>
+                    <Typography variant='h5' color="primary">
+                        Menu
+                    </Typography>
+                    <Stack direction="column" spacing={2} sx={{ width: '100%' }}>
+                        <Button variant="outlined" fullWidth startIcon={<ArrowRightIcon />} onClick={() => setOpen2(true)}>Проекты</Button>
+                        <Button variant="outlined" fullWidth startIcon={<ArrowRightIcon />}>О нас</Button>
+                        <Button variant="outlined" fullWidth startIcon={<ArrowRightIcon />}>грохочет</Button>
+                    </Stack>
+                    <SlideMenu state={open2} title='sdfs' container={containerRef} />
+                </Box>
             </Drawer>
             <Box
                 sx={{
@@ -56,7 +77,6 @@ const Header = ({ video, title }) => {
             />
             <Typography
                 variant="h3"
-                color='primary'
                 sx={{
                     zIndex: 2,
                     fontFamily: 'Montserrat, sans-serif',
