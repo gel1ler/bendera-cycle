@@ -43,11 +43,7 @@ const Header = ({ video, title }) => {
             </IconButton>
             <Drawer
                 open={open}
-<<<<<<< HEAD
-                onClose={() => setOpen(false)}
-=======
                 onClose={handleClose}
->>>>>>> a60f64d8f07437455960ade76345ac5ad7c74536
             >
                 <Box sx={{ px: 2, pt: 2, height: '100%', width: '30vw', bgcolor: 'secondary.main' }} ref={containerRef}>
                     <Typography variant='h5' color="primary">
@@ -67,7 +63,6 @@ const Header = ({ video, title }) => {
                     transition: 'all 0.5s linear',
                     width: '100%',
                     height: '70vh',
-                    width: '40vw',
                     background: 'rgb(0, 0, 0)',
                     background: 'linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, transparent 100%)',
                     zIndex: 1,

@@ -6,19 +6,6 @@ import { Box, Typography } from '@mui/material'
 
 const App = () => {
   return (
-<<<<<<< HEAD
-    <Box
-      className="App"
-      sx={{
-        width: '50%',
-        mx: 'auto',
-        height: '90vh',
-        bgcolor: 'red',
-        position: 'relative'
-      }}>
-
-      <Typography variant="h3" sx={{ position: 'absolute', top: 1, right: 1 }}>X</Typography>
-=======
     <Box>
       <Header
         title='B E N D E R A - 1'
@@ -36,7 +23,6 @@ const App = () => {
         </Box>
 
       </Box>
->>>>>>> a60f64d8f07437455960ade76345ac5ad7c74536
     </Box>
   )
 }
