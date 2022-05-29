@@ -37,7 +37,6 @@ const Header = ({ video, title }) => {
                 anchor='left'
                 open={open}
                 onClose={() => setOpen(false)}
-                sx={{width: '25vw'}}
             >
                 asdasd
             </Drawer>
@@ -47,6 +46,7 @@ const Header = ({ video, title }) => {
                     transition: 'all 0.5s linear',
                     width: '100%',
                     height: '70vh',
+                    width: '40vw',
                     background: 'rgb(0, 0, 0)',
                     background: 'linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, transparent 100%)',
                     zIndex: 1,
