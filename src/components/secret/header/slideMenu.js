@@ -11,8 +11,8 @@ const SlideMenu = ({ title, state, setState, container }) => {
                     top: 0,
                     width: '30vw',
                     height: '100%',
-                    bgcolor: 'secondary.main',
-                    color: 'primary.main'
+                    bgcolor: 'primary.main',
+                    color: 'secondary.main'
                 }}
             >
                 {title}

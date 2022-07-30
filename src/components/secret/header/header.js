@@ -3,7 +3,7 @@ import './style.css'
 import { Box, Typography, IconButton, Drawer, Stack, Button, Slide } from '@mui/material'
 import DensityMediumIcon from '@mui/icons-material/DensityMedium'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import SlideMenu from '../slideMenu'
+import SlideMenu from './slideMenu'
 
 const Header = ({ video, title }) => {
     const [scroll, setScroll] = useState(0)
