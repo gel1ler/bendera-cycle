@@ -7,6 +7,11 @@ const Main = () => {
     const [opacity, setOpacity] = useState(1)
     const [lSpacing, setLSpacing] = useState(40)
     const [display, setDisplay] = useState('block')
+    const [starsScale, setStarsScale] = useState(8)
+    const [x, setX] = useState(0)
+    const [y, setY] = useState(-50)
+    const [z, setZ] = useState(-1000)
+
 
     const scroll = event => {
         let direction = Math.sign(event.deltaY) < 0 ? true : false
@@ -15,6 +20,10 @@ const Main = () => {
             setSize(size + 10)
             setOpacity(opacity - 0.04)
             setLSpacing(lSpacing + 5)
+            setStarsScale(starsScale - 0.27)
+            setX(x + 0.3625)
+            setY(y + 1.64375)
+            setZ(z + 38.45)
             opacity <= 0 && setDisplay('none')
         }
         else if (!direction && size > 100) {
@@ -22,6 +31,10 @@ const Main = () => {
             setSize(size - 10)
             setOpacity(opacity + 0.04)
             setLSpacing(lSpacing - 5)
+            setStarsScale(starsScale + 0.27)
+            setX(x - 0.3625)
+            setY(y - 1.64375)
+            setZ(z - 38.45)
             opacity > 0 && setDisplay('block')
         }
     }
@@ -47,7 +60,7 @@ const Main = () => {
                 BcYCLE
             </Typography>
             <Box sx={{ position: 'absolute', width: '100vw', height: '100vh', left: 0, top: 0 }}>
-                <Test />
+                <Test starsScale={starsScale} x={x} y={y} z={z} />
             </Box>
         </>
     )
